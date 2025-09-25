@@ -25,8 +25,8 @@ def answer_two():
 
         print(ll)
 
-    except Exception as eg:
-        print("Handled exception group: {eg}")
+    except Exception:
+        print("Handled exception group: ")
 
 if __name__=="__main__":
     pass

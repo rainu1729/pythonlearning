@@ -6,7 +6,7 @@ def main():
     # print(question_set1.answer_one())
     question_set1.answer_two()
     # print('Answers from question_set2:')
-    # print(question_set2.answer_three())
+    print(question_set2.answer_three())
     # print(question_set2.answer_four())
 
 if __name__ == "__main__":

@@ -24,6 +24,17 @@ class LinkedList:
     def insert_at_beginning(self,data):
         node = Node(data,self.head)
         self.head = node
+    
+    def insert_at_end(self,data):
+        if self.head is None:
+            self.head = Node(data,None)
+            return
+        
+        node = self.head
+        while node.next is not None:
+            node = node.next
+        node.next = Node(data,None)
+        
 
     def __str__(self):
         
@@ -40,10 +51,16 @@ if __name__ ==  '__main__':
 
     ll = LinkedList()
 
-    ll.insert_at_beginning(5)
+    ll.insert_at_beginning(7)
 
     ll.insert_at_beginning(6)
 
-    ll.insert_at_beginning(7)
+    ll.insert_at_beginning(5)
+
+    print(ll)
+
+    ll.insert_at_end(8)
+
+    ll.insert_at_end(9)
 
     print(ll)
