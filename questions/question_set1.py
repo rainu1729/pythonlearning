@@ -24,7 +24,7 @@ def answer_two():
         ll.insert_at_beginning(3)
         ll.insert_at_beginning(2)
         ll.insert_at_beginning(1)
-
+        print("Print the elements of the linked list")
         print(ll)
 
     except Exception:
