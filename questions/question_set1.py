@@ -1,13 +1,15 @@
-
 from .linkedlist.linkedlist import LinkedList
+
 
 def answer_one():
     """Answer to question 1. Calls create_and_move.sh shell script."""
     import subprocess
-    result = subprocess.run([
-        "bash", "../scripts/create_and_move.sh"
-    ], capture_output=True, text=True)
+
+    result = subprocess.run(
+        ["bash", "../scripts/create_and_move.sh"], capture_output=True, text=True
+    )
     return f"Shell script executed. Output:\n{result.stdout}\nError (if any):\n{result.stderr}"
+
 
 def answer_two():
     """Create and demo linked list in python"""
@@ -28,5 +30,6 @@ def answer_two():
     except Exception:
         print("Handled exception group: ")
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     pass
