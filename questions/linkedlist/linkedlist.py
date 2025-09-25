@@ -37,6 +37,7 @@ class LinkedList:
 
     def __invalidindex(self, index):
         if index < 0 or index >= len(self):
+            print(f"the index is {index} and length is {len(self)}")
             raise Exception("Invalid Index")
 
     def node_at_index(self, index):
@@ -86,8 +87,18 @@ class LinkedList:
             count += 1
         return
 
-    def insert_at(self, index, data):
+    def insert_at_index(self, index, data):
         self.__invalidindex(index)
+
+        startNode = None if index==0 else self.node_at_index(index-1)
+        insertNode = Node(data,self.node_at_index(index))
+
+        if startNode is None:
+            self.head = insertNode
+        else:
+            startNode.next = insertNode
+        return
+
 
     def __str__(self):
         node = self.head
@@ -118,11 +129,19 @@ if __name__ == "__main__":
 
     ll.insert_at_beginning(5)
 
+    ll.insert_at_beginning(4)
+
     print(ll)
 
-    print(f"Node at a specific index 2:: {ll.node_at_index(2)}")
+    print(f"Node at a specific index 1:: {ll.node_at_index(3)}")
 
     print("----------------------------------")
+
+    ll.insert_at_index(3,9999)
+
+    print(f"Node at a specific index 1:: {ll.node_at_index(3)}")
+
+    print(ll)
 
     # print("element at position 2 :"+ll.node_at_index(2))
 
@@ -146,11 +165,11 @@ if __name__ == "__main__":
 
     # print(lls)
 
-    llv = LinkedList()
+    # llv = LinkedList()
 
-    llv.create_ll_from_list(["orange", "apple", "banana", "grape", "kiwi"])
+    # llv.create_ll_from_list(["orange", "apple", "banana", "grape", "kiwi"])
 
-    print(llv)
+    # print(llv)
 
     # print(f"Length of llv is {len(llv)}")
     # try:
