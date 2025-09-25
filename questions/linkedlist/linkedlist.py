@@ -90,15 +90,14 @@ class LinkedList:
     def insert_at_index(self, index, data):
         self.__invalidindex(index)
 
-        startNode = None if index==0 else self.node_at_index(index-1)
-        insertNode = Node(data,self.node_at_index(index))
+        startNode = None if index == 0 else self.node_at_index(index - 1)
+        insertNode = Node(data, self.node_at_index(index))
 
         if startNode is None:
             self.head = insertNode
         else:
             startNode.next = insertNode
         return
-
 
     def __str__(self):
         node = self.head
@@ -137,7 +136,7 @@ if __name__ == "__main__":
 
     print("----------------------------------")
 
-    ll.insert_at_index(3,9999)
+    ll.insert_at_index(3, 9999)
 
     print(f"Node at a specific index 1:: {ll.node_at_index(3)}")
 
