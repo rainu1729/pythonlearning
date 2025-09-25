@@ -1,4 +1,4 @@
-from .linkedlist.linkedlist import LinkedList
+from questions.linkedlist import linkedlist
 
 
 def answer_one():
@@ -17,7 +17,7 @@ def answer_two():
 
     try:
         print("Inside the try block")
-        ll = LinkedList()
+        ll = linkedlist.LinkedList()
         print("Created the linked list")
         ll.insert_at_beginning(5)
         ll.insert_at_beginning(4)
