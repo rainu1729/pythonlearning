@@ -70,7 +70,7 @@ class LinkedList:
         for data in list:
             self.insert_at_end(data)
 
-    def remove_at(self, index):
+    def remove_at_index(self, index):
         self.__invalidindex(index)
 
         if index == 0:
@@ -98,6 +98,43 @@ class LinkedList:
         else:
             startNode.next = insertNode
         return
+    
+    def remove_by_value(self, value):
+        if self.head is None:
+            return
+        
+        # If head node holds the value
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+
+        # Search for the value in remaining nodes
+        current = self.head
+        while current.next is not None:
+            if current.next.data == value:
+                current.next = current.next.next
+                return
+            current = current.next
+    
+    def remove_by_value2(self, data):
+
+        idx  = 0
+        node = self.head
+
+        while node is not None:
+            if node.data == data:
+                break
+            node = node.next
+            idx += 1
+
+        prior_node = None if idx == 0 else self.node_at_index(idx-1) 
+
+        next_node = None if idx == len(self) else self.node_at_index(idx+1)
+
+        if prior_node is None:
+            self.head = None
+        else:
+            prior_node.next = next_node
 
     def __str__(self):
         node = self.head
@@ -117,6 +154,8 @@ class LinkedList:
 
     def __iter__(self):
         return LinkedListiterator(self.head)
+
+
 
 
 if __name__ == "__main__":

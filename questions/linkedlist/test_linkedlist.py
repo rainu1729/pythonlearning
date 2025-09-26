@@ -46,8 +46,8 @@ def test_linkedlist_create_ll_from_list(empty_list):
     empty_list.create_ll_from_list([1, 2, 3])
     assert str(empty_list) == "-->1-->2-->3"
 
-def test_linkedlist_remove_at(populated_list):
-    populated_list.remove_at(1)
+def test_linkedlist_remove_at_index(populated_list):
+    populated_list.remove_at_index(1)
     assert str(populated_list) == "-->1-->3"
 
 def test_linkedlist_insert_at_index(populated_list):
@@ -71,3 +71,23 @@ def test_linkedlist_str_empty(empty_list):
 def test_linkedlist_str_nonempty(empty_list):
     empty_list.create_ll_from_list([1, 2])
     assert str(empty_list) == "-->1-->2"
+
+def test_remove_by_value(populated_list):
+    # Test removing from middle
+    populated_list.remove_by_value(2)
+    assert str(populated_list) == "-->1-->3"
+
+def test_remove_by_value_head(populated_list):
+    # Test removing head node
+    populated_list.remove_by_value(1)
+    assert str(populated_list) == "-->2-->3"
+
+def test_remove_by_value_not_found(populated_list):
+    # Test removing non-existent value
+    populated_list.remove_by_value(99)
+    assert str(populated_list) == "-->1-->2-->3"
+
+def test_remove_by_value_empty_list(empty_list):
+    # Test removing from empty list
+    empty_list.remove_by_value(1)
+    assert str(empty_list) == ""
