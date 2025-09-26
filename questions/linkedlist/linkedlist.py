@@ -8,10 +8,8 @@ class Node:
 
     def __add__(self, other):
         if isinstance(other, Node):
-            print("into node concat")
             return str(self.data) + " " + str(other.data)
         else:
-            print("into node+str concat")
             return str(self.data) + " " + str(other)
 
 
